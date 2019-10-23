@@ -7,6 +7,8 @@ import {
     TextInput,
     View
 } from 'react-native';
+import firebase from '../Firebase';
+
 export default class Home extends Component{
     static navigationOptions ={
         title : 'Home Screen',
@@ -14,11 +16,35 @@ export default class Home extends Component{
     constructor(props){
         super(props);
         navigate = this.props,
-        this.state={email:'',password:'',device_token:'',device_type:''};
-
+        // this.state={email:'',password:'',device_token:'',device_type:''};
+        this.ref = firebase.firestore().collection('boards');
+        this.unsubscribe = null;
+        this.state = {
+            codeword:'',
+            isLoading: true,
+            boards: []
+        };
+    }
+    onCollectionUpdate = (querySnapshot) => {
+        const boards = [];
+        querySnapshot.forEach((doc) => {
+            const { codeword } = doc.data();
+            boards.push({
+            key: doc.id,
+            doc, // DocumentSnapshot
+            codeword,
+            });
+        });
+        this.setState({
+            boards,
+            isLoading: false,
+        });
+    }
+    componentDidMount() {
+        this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
     }
     login = () => {
-        this.props.navigation.navigate('firstScreen');
+        this.props.navigation.navigate('firstScreen', {codeword: this.state.codeword});
         // fetch('http://span.mobiosolutions.com/api/v1/login',{
         //     method:'POST',
         //     headers:{
@@ -57,8 +83,8 @@ export default class Home extends Component{
                         <View style={styles.inputContainer}>
 
                             <TextInput underlineColorAndroid='transparent' style={styles.input}
-                                       onChangeText={(username) => this.setState({username})}
-                                       value={this.state.username}
+                                       onChangeText={(codeword) => this.setState({codeword})}
+                                       value={this.state.codeword}
                                        placeholder='codeword' />
 
                             {/* <TextInput secureTextEntry={true} underlineColorAndroid='transparent' style={styles.input}
