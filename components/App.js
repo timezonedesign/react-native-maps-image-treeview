@@ -8,6 +8,9 @@ import {
     View
 } from 'react-native';
 import firebase from '../Firebase';
+import firstScreen from './firstScreen';
+import secondScreen from './secondScreen';
+import thirdScreen from './thirdScreen';
 
 export default class Home extends Component{
     static navigationOptions ={
@@ -44,6 +47,13 @@ export default class Home extends Component{
         this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
     }
     login = () => {
+        firstScreen.navigationOptions = secondScreen.navigationOptions = thirdScreen.navigationOptions ={
+            title : this.state.codeword,
+            headerTitleStyle: {
+                fontWeight: 'bold',
+                textAlign: 'center',
+            },
+        };
         this.props.navigation.navigate('firstScreen', {codeword: this.state.codeword});
         // fetch('http://span.mobiosolutions.com/api/v1/login',{
         //     method:'POST',
@@ -133,6 +143,7 @@ const styles=StyleSheet.create({
         alignItems:'center',
     },
     logo:{
+        top: '-30%',
         color:'white',
         fontSize:40,
         fontStyle:'italic',
@@ -143,6 +154,7 @@ const styles=StyleSheet.create({
         marginBottom:20,
     },
     inputContainer:{
+        top: '-30%',
         margin:20,
         marginBottom:0,
         padding:20,

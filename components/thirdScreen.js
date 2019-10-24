@@ -12,7 +12,6 @@ export default class thirdScreen extends React.Component{
   nextPage = () => {
     const { navigation } = this.props;
     var icon = navigation.getParam('icon', 'no_url');
-    console.log(icon);
     this.props.navigation.navigate('firstScreen',{icon: icon})
   }
   
@@ -22,7 +21,7 @@ export default class thirdScreen extends React.Component{
     var name = navigation.getParam('name', 'no_url');
     return(
         <View style={styles.container}>
-            <Image style={styles.image} source ={icon} />
+            <Image style={styles.image} source ={{uri: icon}} />
             <Text style={styles.iconName}>
                 {name.toUpperCase()}
             </Text>
@@ -82,6 +81,6 @@ const styles=StyleSheet.create({
 });
 
 
-thirdScreen.navigationOptions ={
-    title: 'Back'
-}
+// thirdScreen.navigationOptions ={
+//     title: 'Back'
+// }

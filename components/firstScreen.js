@@ -21,9 +21,9 @@ const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
 export default class firstScreen extends Component{
-    static navigationOptions ={
-        title : 'Back',
-    }
+    // static navigationOptions ={
+    //     title : this.state.collection_name,
+    // }
     constructor(props){
         super(props);
         const { navigation } = this.props;
@@ -32,20 +32,23 @@ export default class firstScreen extends Component{
         this.ref = firebase.firestore().collection(collection_name);
         this.unsubscribe = null;
         this.state = {
+            collection_name: collection_name,
             isLoading: true,
             tabs: [],
-            region: {
             latitude: LATITUDE,
             longitude: LONGITUDE,
-            latitudeDelta: LATITUDE_DELTA,
-            longitudeDelta: LONGITUDE_DELTA,
-            },
             marker: {
             latitude: LATITUDE,
             longitude: LONGITUDE,
             }
         };
     }
+    getMapRegion = () => ({
+        latitude: this.state.latitude,
+        longitude: this.state.longitude,
+        latitudeDelta: LATITUDE_DELTA,
+        longitudeDelta: LONGITUDE_DELTA
+    });
     onCollectionUpdate = (querySnapshot) => {
         const tabs = [];
         querySnapshot.forEach((doc) => {
@@ -67,11 +70,38 @@ export default class firstScreen extends Component{
         this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
         this.load()
         this.props.navigation.addListener('willFocus', this.load)
+
+        navigator.geolocation.getCurrentPosition(
+        position => {
+            console.log(position);
+            this.setState({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+            error: null
+            });
+        },
+        error => this.setState({ error: error.message }),
+        { enableHighAccuracy: true, timeout: 200000, maximumAge: 1000 }
+        );
+        navigator.geolocation.watchPosition(
+            position => {
+             const { latitude, longitude } = position.coords;
+             this.setState({ latitude,longitude
+             });
+           },
+           error => console.log(error),
+            { 
+            enableHighAccuracy: true,
+            timeout: 20000,
+            maximumAge: 1000,
+            distanceFilter: 10
+            }
+        );
     }
+    
     load = () => {
         const { navigation } = this.props;
         var icon = navigation.getParam('icon', 'no_icon');
-        console.log(JSON.stringify(icon));
         if(icon!='' && icon!='no_icon'){
             this.saveBoard();
         }
@@ -85,8 +115,8 @@ export default class firstScreen extends Component{
         console.log(icon);
         this.ref.add({
             icon: icon,
-            longitude: this.state.marker.longitude,
-            latitude: this.state.marker.latitude,
+            longitude: this.state.longitude,
+            latitude: this.state.latitude,
         }).then((docRef) => {
             this.setState({
             // title: '',
@@ -123,10 +153,10 @@ render(){
             <MapView
             provider={PROVIDER_GOOGLE} // remove if not using Google Maps
             style={styles.map}
-            onRegionChangeComplete={this.onRegionChange}
-            initialRegion={this.state.region}
+            // onRegionChangeComplete={this.onRegionChange}
+            region={this.getMapRegion()}
             >
-            <Marker coordinate={this.state.marker} />
+            <Marker coordinate={this.getMapRegion()} />
             {
                 this.state.tabs.map((item, i) => (
                     <Marker
@@ -137,7 +167,7 @@ render(){
                     }}
                     // description={"This is a marker in React Natve"}
                     >
-                    <Image source ={item.icon} style={{height: 35, width:35 }} />
+                    <Image source ={{uri: item.icon}} style={{height: 35, width:35 }} />
                     </Marker>
                 ))
                 
