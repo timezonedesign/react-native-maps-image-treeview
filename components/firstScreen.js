@@ -42,7 +42,8 @@ export default class firstScreen extends Component{
             marker: {
             latitude: LATITUDE,
             longitude: LONGITUDE,
-            }
+            },
+            mapType: 'standard'
         };
     }
     getMapRegion = () => ({
@@ -147,14 +148,38 @@ onRegionChange = (region) => {
       }
     });
   }
+  changeMapType = () => {
+      switch(this.state.mapType){
+        case 'standard':
+            this.setState({mapType:'hybrid'});
+            break;
+        case 'hybrid':
+            this.setState({mapType:'mutedStandard'});
+            break;
+        case 'mutedStandard':
+            this.setState({mapType:'satellite'});
+            break;
+        case 'satellite':
+            this.setState({mapType:'terrain'});
+            break;
+        case 'terrain':
+            this.setState({mapType:'standard'});
+            break;
+      }
+  }
 render(){
     const { navigation } = this.props;
     return(
         <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.container}>
+        <Text onPress={this.changeMapType} style={styles.maptype}>
+            <Image  source ={{uri: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2Fmapstyle.png?alt=media'}} style={{height: 48, width:48}} />
+        </Text>
             <MapView
             provider={PROVIDER_GOOGLE} // remove if not using Google Maps
             style={styles.map}
+            mapType={this.state.mapType}
+            
             // onRegionChangeComplete={this.onRegionChange}
             region={this.getMapRegion()}
             >
@@ -175,28 +200,30 @@ render(){
                 
             }
             </MapView>
-            {/* <Text style={styles.text1}>{navigation.getParam('codeword', 'No Codeword')}</Text> */}
             <Text onPress={this.nextPage} style={styles.text2}>+</Text>
             <Text
             style={styles.text3}
             onPress={() => {Linking.openURL('https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/minicarta-legal.html?alt=media')}}
             >
-                Terms of Service
+                Terms and Conditions
             </Text>
         </View>
         </SafeAreaView>
     );
 }
-// firstScreen.navigationOptions ={
-//     title: 'First Screen Title'
-// }
 }
-// export default firstScreen
 
 const styles = StyleSheet.create({
  container: {
    ...StyleSheet.absoluteFillObject,
    justifyContent: 'flex-end',
+ },
+ maptype: {
+     position:'absolute',
+     top:'-5%',
+     right: '3%',
+     lineHeight: 100,
+     zIndex: 2,
  },
  map: {
    ...StyleSheet.absoluteFillObject,

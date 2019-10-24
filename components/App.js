@@ -5,7 +5,8 @@ import {
     StyleSheet,
     Text,
     TextInput,
-    View
+    View,
+    Linking,
 } from 'react-native';
 import firebase from '../Firebase';
 import firstScreen from './firstScreen';
@@ -56,34 +57,8 @@ export default class Home extends Component{
             },
         };
         this.props.navigation.navigate('firstScreen', {codeword: this.state.codeword});
-        // fetch('http://span.mobiosolutions.com/api/v1/login',{
-        //     method:'POST',
-        //     headers:{
-        //         'Accept':'application/json',
-        //         'Content-Type':'application/json',
-        //     },
-        //     body:JSON.stringify({
-        //         email: this.state.username,
-        //         password: this.state.password,
-        //         device_token: 'aajdflkajdjfajdflkj',
-        //         device_type: '1'
-        //     })
-        // })
-        // .then((response) => response.json())
-        //     .then((res) => {
-        //         if(res.statusCode === 1){
-        //             console.log(res);
-        //             var username=res.message;
-        //             AsyncStorage.setItem('username',username);
-        //             this.props.navigation.navigate('SecondScreen')
-        //         }else{
-        //             alert(res.message);
-        //         }
-        //     })
-        //     .done();
     }
     render(){
-        // const {navigate} = this.props.navigation;
         return(
             <View style={styles.container}>
 
@@ -97,19 +72,17 @@ export default class Home extends Component{
                                        onChangeText={(codeword) => this.setState({codeword})}
                                        value={this.state.codeword}
                                        placeholder='codeword' />
-
-                            {/* <TextInput secureTextEntry={true} underlineColorAndroid='transparent' style={styles.input}
-                                       onChangeText={(password) => this.setState({password})}
-                                       value={this.state.password} placeholder='password'/> */}
-                            {/*<Button*/}
-                            {/*onPress={() => navigate('SecondScreen')}*/}
-                            {/*title="Login"/>*/}
-
                             <Button
                                 onPress={this.login}
                                 title="Login"/>
                         </View>
                     </View>
+                    <Text
+                    style={styles.text3}
+                    onPress={() => {Linking.openURL('https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/minicarta-legal.html?alt=media')}}
+                    >
+                        Terms and Conditions
+                    </Text>
                 </ImageBackground>
             </View>
         )
@@ -172,4 +145,12 @@ const styles=StyleSheet.create({
         marginBottom:10,
         backgroundColor:'rgba(255,255,255,1)',
     },
+    text3:{
+      position: 'absolute',
+      bottom: '1%',
+      left: '2%',
+      fontSize: 16,
+      color: '#0000ff',
+      textDecorationLine: 'underline',
+    }
 });
