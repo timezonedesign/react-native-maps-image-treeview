@@ -52,6 +52,7 @@ export default class Home extends Component{
             headerTitleStyle: {
                 fontWeight: 'bold',
                 textAlign: 'center',
+                width: '100%',
             },
         };
         this.props.navigation.navigate('firstScreen', {codeword: this.state.codeword});
@@ -88,7 +89,7 @@ export default class Home extends Component{
 
                 <ImageBackground style={styles.backgroundImage}>
                     <View style={styles.content}>
-                        <Text style={styles.logo}>- EMERGENCY -</Text>
+                        <Text style={styles.logo}>- MiniCarta -</Text>
 
                         <View style={styles.inputContainer}>
 

@@ -7,9 +7,11 @@ import {
   Platform,
   Dimensions,
   SafeAreaView,
+  Linking,
 } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
 import firebase from '../Firebase';
+
 // import undefined from 'firebase/empty-import';
 
 const { width, height } = Dimensions.get("window");
@@ -173,9 +175,14 @@ render(){
                 
             }
             </MapView>
-            <Text style={styles.text1}>{navigation.getParam('codeword', 'No Codeword')}</Text>
+            {/* <Text style={styles.text1}>{navigation.getParam('codeword', 'No Codeword')}</Text> */}
             <Text onPress={this.nextPage} style={styles.text2}>+</Text>
-            <Text style={styles.text3}>Terms of Service</Text>
+            <Text
+            style={styles.text3}
+            onPress={() => {Linking.openURL('https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/minicarta-legal.html?alt=media')}}
+            >
+                Terms of Service
+            </Text>
         </View>
         </SafeAreaView>
     );
