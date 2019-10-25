@@ -1,8 +1,14 @@
 const icons =[
     {
+      id: 0,
+      name: 'RECENT',
+      icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2Fstar.png?alt=media',
+      children: []
+    },
+    {
         id: -1,
         name: 'Manmade Hazards',
-        icon: require('../assets/Folder-Documents-icon.png'),
+        icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
         children: [
             {
                 id: 1,
@@ -79,7 +85,7 @@ const icons =[
     {
         id: -2,
         name: 'USAR',
-        icon: require('../assets/Folder-Documents-icon.png'),
+        icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
         children: [
             {
                 id: 15,
@@ -216,7 +222,7 @@ const icons =[
     {
         id: -3,
         name: 'Public Alerts',
-        icon: require('../assets/Folder-Documents-icon.png'),
+        icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
         children: [
             {
                 id: 41,
@@ -478,7 +484,7 @@ const icons =[
     {
         id: -4,
         name: 'Natural Hazards',
-        icon: require('../assets/Folder-Documents-icon.png'),
+        icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
         children: [
             {
                 id: 92,
@@ -555,12 +561,12 @@ const icons =[
     {
         id: -5,
         name: 'Access Hazards',
-        icon: require('../assets/Folder-Documents-icon.png'),
+        icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
         children: [
             {
                 id: -6,
                 name: 'Emergency Access Hazards',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 106,
@@ -747,7 +753,7 @@ const icons =[
             {
                 id: -7,
                 name: 'Emergency Access Points',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 142,
@@ -816,12 +822,12 @@ const icons =[
     {
         id: -8,
         name: 'Preplan',
-        icon: require('../assets/Folder-Documents-icon.png'),
+        icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
         children: [
             {
                 id: -9,
                 name: 'Key or Knox Box',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 154,
@@ -888,7 +894,7 @@ const icons =[
             {
                 id: -10,
                 name: 'Preplan Features',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 166,
@@ -1825,7 +1831,7 @@ const icons =[
             {
                 id: -11,
                 name: 'Feature Shutoff Detailed',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 352,
@@ -2007,7 +2013,7 @@ const icons =[
             {
                 id: -12,
                 name: 'Fire Suppression Detailed',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 387,
@@ -2254,7 +2260,7 @@ const icons =[
             {
                 id: -13,
                 name: 'Vertical Access Features Detailed',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 435,
@@ -2311,7 +2317,7 @@ const icons =[
             {
                 id: -14,
                 name: 'Alarm Detectors Detailed',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 445,
@@ -2505,7 +2511,7 @@ const icons =[
     {
         id: -15,
         name: 'Hazard Points',
-        icon: require('../assets/Folder-Documents-icon.png'),
+        icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
         children: [
             {
                 id: 482,
@@ -2722,7 +2728,7 @@ const icons =[
     {
         id: -16,
         name: 'Emergency Response Resources',
-        icon: require('../assets/Folder-Documents-icon.png'),
+        icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
         children: [
             {
                 id: 524,
@@ -3144,12 +3150,12 @@ const icons =[
     {
         id: -17,
         name: 'Incident',
-        icon: require('../assets/Folder-Documents-icon.png'),
+        icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
         children: [
             {
                 id: -18,
                 name: 'Incident Intelligence',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 607,
@@ -3296,7 +3302,7 @@ const icons =[
             {
                 id: -19,
                 name: 'Incident Resources',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 635,
@@ -3780,7 +3786,7 @@ const icons =[
     {
         id: -20,
         name: 'Hazardous Materials',
-        icon: require('../assets/Folder-Documents-icon.png'),
+        icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
         children: [
             {
                 id: 730,
@@ -4007,12 +4013,12 @@ const icons =[
     {
         id: -21,
         name: 'Lifelines',
-        icon: require('../assets/Folder-Documents-icon.png'),
+        icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
         children: [
             {
                 id: -22,
                 name: 'Transportation',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 774,
@@ -4069,7 +4075,7 @@ const icons =[
             {
                 id: -23,
                 name: 'Energy',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 784,
@@ -4126,7 +4132,7 @@ const icons =[
             {
                 id: -24,
                 name: 'Safety and Security',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 794,
@@ -4183,7 +4189,7 @@ const icons =[
             {
                 id: -25,
                 name: 'Food Water Shelter',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 804,
@@ -4240,7 +4246,7 @@ const icons =[
             {
                 id: -26,
                 name: 'Hazardous Materials',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 814,
@@ -4297,7 +4303,7 @@ const icons =[
             {
                 id: -27,
                 name: 'Health and Medical',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 824,
@@ -4354,7 +4360,7 @@ const icons =[
             {
                 id: -28,
                 name: 'Communications',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 834,
@@ -4413,7 +4419,7 @@ const icons =[
     {
         id: -29,
         name: 'NIMS',
-        icon: require('../assets/Folder-Documents-icon.png'),
+        icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
         children: [
             {
                 id: 844,
@@ -4905,12 +4911,12 @@ const icons =[
     {
         id: -30,
         name: 'Infrastructure',
-        icon: require('../assets/Folder-Documents-icon.png'),
+        icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
         children: [
             {
                 id: -31,
                 name: 'CRTINS PUBVEN',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 941,
@@ -5042,7 +5048,7 @@ const icons =[
             {
                 id: -32,
                 name: 'CRTINS FOODIN',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 966,
@@ -5054,7 +5060,7 @@ const icons =[
             {
                 id: -33,
                 name: 'CRTINS CHEMCL',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 967,
@@ -5106,7 +5112,7 @@ const icons =[
             {
                 id: -34,
                 name: 'CRTINS LAWENF',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 976,
@@ -5213,7 +5219,7 @@ const icons =[
             {
                 id: -35,
                 name: 'CRTINS BORDER',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 996,
@@ -5235,7 +5241,7 @@ const icons =[
             {
                 id: -36,
                 name: 'CRTINS FINANC',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 999,
@@ -5252,7 +5258,7 @@ const icons =[
             {
                 id: -37,
                 name: 'CRTINS TRNGND',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 1001,
@@ -5319,7 +5325,7 @@ const icons =[
             {
                 id: -38,
                 name: 'CRTINS GOVMNT',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 1013,
@@ -5361,7 +5367,7 @@ const icons =[
             {
                 id: -39,
                 name: 'CRTINS POSTAL',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 1020,
@@ -5373,7 +5379,7 @@ const icons =[
             {
                 id: -40,
                 name: 'CRTINS AGRCLT',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 1021,
@@ -5460,7 +5466,7 @@ const icons =[
             {
                 id: -41,
                 name: 'CRTINS EDUCAT',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 1037,
@@ -5507,7 +5513,7 @@ const icons =[
             {
                 id: -42,
                 name: 'CRTINS TRNAIR',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 1045,
@@ -5554,7 +5560,7 @@ const icons =[
             {
                 id: -43,
                 name: 'CRTINS ENERGY',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 1053,
@@ -5801,7 +5807,7 @@ const icons =[
             {
                 id: -44,
                 name: 'CRTINS PUBHTH',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 1101,
@@ -5878,7 +5884,7 @@ const icons =[
             {
                 id: -45,
                 name: 'CRTINS COMMRL',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 1115,
@@ -5945,7 +5951,7 @@ const icons =[
             {
                 id: -46,
                 name: 'CRTINS TRNWAT',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 1127,
@@ -5962,7 +5968,7 @@ const icons =[
             {
                 id: -47,
                 name: 'CRTINS WATSUP',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 1129,
@@ -6029,7 +6035,7 @@ const icons =[
             {
                 id: -48,
                 name: 'CRTINS NATHAZ',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 1141,
@@ -6051,7 +6057,7 @@ const icons =[
             {
                 id: -49,
                 name: 'CRTINS EMRSVC',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 1144,
@@ -6123,7 +6129,7 @@ const icons =[
             {
                 id: -50,
                 name: 'CRTINS COMMS-',
-                icon: require('../assets/Folder-Documents-icon.png'),
+                icon: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2FFolder-Documents-icon.png?alt=media',
                 children: [
                     {
                         id: 1157,
@@ -6194,4 +6200,5 @@ const icons =[
             },
         ],
     },
-]
+  ]
+export default icons

@@ -52,8 +52,6 @@ export default class Home extends Component{
             title : this.state.codeword,
             headerTitleStyle: {
                 fontWeight: 'bold',
-                textAlign: 'center',
-                width: '100%',
             },
         };
         this.props.navigation.navigate('firstScreen', {codeword: this.state.codeword});
@@ -61,13 +59,10 @@ export default class Home extends Component{
     render(){
         return(
             <View style={styles.container}>
-
                 <ImageBackground style={styles.backgroundImage}>
                     <View style={styles.content}>
                         <Text style={styles.logo}>- MiniCarta -</Text>
-
                         <View style={styles.inputContainer}>
-
                             <TextInput underlineColorAndroid='transparent' style={styles.input}
                                        onChangeText={(codeword) => this.setState({codeword})}
                                        value={this.state.codeword}
