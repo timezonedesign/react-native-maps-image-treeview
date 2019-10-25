@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Emergy",
-    "slug": "Emergy",
+    "name": "Emergy1",
+    "slug": "emergy1",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
@@ -24,12 +24,18 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.corner.emergy",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyDnroD8V1NC1fxS4sEaBy5JSaUl1kjlBFA"
+        }
+      }
     },
     "android": {
       "package": "com.corner.emergy",
       "config": {
-        "googleMaps": { "apiKey": "AIzaSyDnroD8V1NC1fxS4sEaBy5JSaUl1kjlBFA" }   
+        "googleMapsApiKey": "AIzaSyAt-8JW8xC55ViWMX07n2J6aq6iYPItO6k"
       }
     },
     "description": ""
