@@ -8,7 +8,6 @@ import {
   Text,
   ScrollView,
   AsyncStorage ,
-  Linking,
 } from 'react-native';
 import Storage from "./storage";
 function getIndicator(icon) {
@@ -37,7 +36,6 @@ export default class secondScreen extends React.Component{
         node1.id = node1.id+10000;
         icons[0].children.unshift(node1);
         if(icons[0].children.length>5) icons[0].children.splice(5,1);
-        // console.log(recent);
       }
       await AsyncStorage.setItem('name', JSON.stringify(icons[0].children));
       this.setState({data: icons});
@@ -49,7 +47,6 @@ export default class secondScreen extends React.Component{
     try {
         const value = await AsyncStorage.getItem('name');
         if (value !== null) {
-            // Our data is fetched successfully
             temp1=JSON.parse(value);
             console.log(temp1[0]);
             icons[0].children=[];
@@ -81,12 +78,10 @@ export default class secondScreen extends React.Component{
           nextNodes.length > 0 ||
           n.name.toLowerCase().includes(keyword.toLowerCase())
         ) {
-          // n.name = this.getHighlightText(n.name, keyword);
           newNodes.push(n);
         }
       } else {
         if (n.name.toLowerCase().includes(keyword.toLowerCase())) {
-          // n.name = this.getHighlightText(n.name, keyword);
           newNodes.push(n);
         }
       }
@@ -133,27 +128,13 @@ export default class secondScreen extends React.Component{
     </View>
     </ScrollView>
     </ScrollView>
-    <Text
-    style={styles.text3}
-    onPress={() => {Linking.openURL('https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/minicarta-legal.html?alt=media')}}
-    >
-        Terms and Conditions
-    </Text>
     </View>
     );
   }
 }
-// secondScreen.navigationOptions ={
-//     title: 'Back'
-// }
 const styles=StyleSheet.create({
     container: {
         flex:1,
-        // ...StyleSheet.absoluteFillObject,
-        // justifyContent: 'flex-end',
-    },
-    searchbar: {
-        // ...StyleSheet.absoluteFillObject,
     },
     scrollview: {
         position: 'absolute',
@@ -174,16 +155,6 @@ const styles=StyleSheet.create({
       fontSize: 24,
       marginTop: -5,
     },
-    text3: {
-        // ...StyleSheet.absoluteFillObject,
-        // justifyContent: 'flex-end',
-        position: 'absolute',
-        bottom: '1%',
-        left: '2%',
-        fontSize: 16,
-        color: '#0000ff',
-        textDecorationLine: 'underline'
-     },
 });
 
 const icons =[

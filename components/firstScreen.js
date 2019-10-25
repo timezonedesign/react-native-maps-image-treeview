@@ -7,12 +7,9 @@ import {
   Platform,
   Dimensions,
   SafeAreaView,
-  Linking,
 } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
 import firebase from '../Firebase';
-
-// import undefined from 'firebase/empty-import';
 
 const { width, height } = Dimensions.get("window");
 
@@ -23,9 +20,6 @@ const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
 export default class firstScreen extends Component{
-    // static navigationOptions ={
-    //     title : this.state.collection_name,
-    // }
     constructor(props){
         super(props);
         const { navigation } = this.props;
@@ -76,7 +70,6 @@ export default class firstScreen extends Component{
 
         navigator.geolocation.getCurrentPosition(
         position => {
-            console.log(position);
             this.setState({
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,
@@ -115,19 +108,14 @@ export default class firstScreen extends Component{
         });
         const { navigation } = this.props;
         var icon = navigation.getParam('icon', 'no_icon');
-        console.log(icon);
         this.ref.add({
             icon: icon,
             longitude: this.state.longitude,
             latitude: this.state.latitude,
         }).then((docRef) => {
             this.setState({
-            // title: '',
-            // description: '',
-            // author: '',
             isLoading: false,
             });
-            // this.props.navigation.goBack();
         })
         .catch((error) => {
             console.error("Error adding document: ", error);
@@ -198,12 +186,6 @@ render(){
             }
             </MapView>
             <Text onPress={this.nextPage} style={styles.text2}>+</Text>
-            <Text
-            style={styles.text3}
-            onPress={() => {Linking.openURL('https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/minicarta-legal.html?alt=media')}}
-            >
-                Terms and Conditions
-            </Text>
         </View>
         </SafeAreaView>
     );
@@ -250,11 +232,5 @@ const styles = StyleSheet.create({
    textAlign: 'center',
    textAlignVertical: 'center',
    lineHeight: 72
- },
- text3: {
-    left: '2%',
-    fontSize: 16,
-    color: '#0000ff',
-    textDecorationLine: 'underline'
  },
 });

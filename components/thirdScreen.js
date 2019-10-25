@@ -4,7 +4,6 @@ import {
   View,
   Text,
   Image,
-  Linking,
 } from 'react-native';
 export default class thirdScreen extends React.Component{
   constructor(props){
@@ -30,12 +29,6 @@ export default class thirdScreen extends React.Component{
                 This symbol represents{"\n"} a {name.toLowerCase()}
             </Text>
             <Text onPress={this.nextPage} style={styles.text2}>Add to map</Text>
-            <Text
-            style={styles.text3}
-            onPress={() => {Linking.openURL('https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/minicarta-legal.html?alt=media')}}
-            >
-                Terms and Conditions
-            </Text>
         </View>
     );
   }
@@ -49,7 +42,6 @@ const styles=StyleSheet.create({
         backgroundColor:'#F5FCFF',
     },
     image: {
-      // ...StyleSheet.absoluteFillObject,
       top: '-10%',
       width: 256, 
       height:256,
@@ -94,8 +86,3 @@ const styles=StyleSheet.create({
       textDecorationLine: 'underline'
    },
 });
-
-
-// thirdScreen.navigationOptions ={
-//     title: 'Back'
-// }
