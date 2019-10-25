@@ -179,8 +179,6 @@ render(){
             provider={PROVIDER_GOOGLE} // remove if not using Google Maps
             style={styles.map}
             mapType={this.state.mapType}
-            
-            // onRegionChangeComplete={this.onRegionChange}
             region={this.getMapRegion()}
             >
             <Marker coordinate={this.getMapRegion()} />
@@ -192,7 +190,6 @@ render(){
                         latitude: item.latitude,
                         longitude: item.longitude,
                     }}
-                    // description={"This is a marker in React Natve"}
                     >
                     <Image source ={{uri: item.icon}} style={{height: 35, width:35 }} />
                     </Marker>
@@ -235,7 +232,6 @@ const styles = StyleSheet.create({
      ...StyleSheet.absoluteFillObject,
     left: 120,
     top: 10,
-    // zIndex: 2,
     fontSize: 20,
     fontWeight: "900",
  },
