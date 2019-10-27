@@ -10,8 +10,13 @@ import {
   AsyncStorage ,
 } from 'react-native';
 import icons from './data'
-function getIndicator(icon) {
+function getIcon(icon) {
   return (<Image style={{width: 24, height:24}} source={{uri: icon}} />);
+}
+function getName(name, level) {
+  edited_name = name;
+  if(edited_name.length>26-level*2)edited_name = edited_name.substr(0,24-level*2) + "...";
+  return edited_name;
 }
 export default class secondScreen extends React.Component{
   constructor(props){
@@ -98,7 +103,7 @@ export default class secondScreen extends React.Component{
         style={styles.searchbar}
       />
       <ScrollView style={styles.scrollview}>
-      <ScrollView horizontal>
+      {/* <ScrollView horizontal> */}
       <View>
       <TreeView
       data={this.state.data} // defined above
@@ -115,9 +120,9 @@ export default class secondScreen extends React.Component{
         return (
         <React.Fragment key={node.id}>
           <View style={{marginLeft: 25 * level, flexDirection:'row', flexWrap:'wrap', lineHeight: 48,}}>
-            {getIndicator(node.icon)}
+            {getIcon(node.icon)}
             <Text style={styles.text}>
-               {"  "}{node.name}
+               {"  "}{getName(node.name, level)}
             </Text>
           </View>
         </React.Fragment>
@@ -126,7 +131,7 @@ export default class secondScreen extends React.Component{
     }
     />
     </View>
-    </ScrollView>
+    {/* </ScrollView> */}
     </ScrollView>
     </View>
     );
@@ -140,6 +145,7 @@ const styles=StyleSheet.create({
         position: 'absolute',
         top: '10%',
         height: '85%',
+        width: '100%',
     },
     welcome:{
         fontSize:20,

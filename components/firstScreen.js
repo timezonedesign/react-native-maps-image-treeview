@@ -33,9 +33,17 @@ export default class firstScreen extends Component{
             tabs: [],
             latitude: LATITUDE,
             longitude: LONGITUDE,
+            latitudeDelta: LATITUDE_DELTA,
+            longitudeDelta: LONGITUDE_DELTA,
+            region: {
+                latitude: LATITUDE,
+                longitude: LONGITUDE,
+                latitudeDelta: LATITUDE_DELTA,
+                longitudeDelta: LONGITUDE_DELTA,
+            },
             marker: {
-            latitude: LATITUDE,
-            longitude: LONGITUDE,
+                latitude: LATITUDE,
+                longitude: LONGITUDE,
             },
             mapType: 'standard'
         };
@@ -43,8 +51,8 @@ export default class firstScreen extends Component{
     getMapRegion = () => ({
         latitude: this.state.latitude,
         longitude: this.state.longitude,
-        latitudeDelta: LATITUDE_DELTA,
-        longitudeDelta: LONGITUDE_DELTA
+        latitudeDelta: this.state.latitudeDelta,
+        longitudeDelta: this.state.longitudeDelta
     });
     onCollectionUpdate = (querySnapshot) => {
         const tabs = [];
@@ -71,10 +79,14 @@ export default class firstScreen extends Component{
         navigator.geolocation.getCurrentPosition(
         position => {
             this.setState({
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-            error: null
-            });
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude,
+                marker: {
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude,
+                },
+                error: null
+        });
         },
         error => this.setState({ error: error.message }),
         { enableHighAccuracy: true, timeout: 200000, maximumAge: 1000 }
@@ -82,8 +94,12 @@ export default class firstScreen extends Component{
         navigator.geolocation.watchPosition(
             position => {
              const { latitude, longitude } = position.coords;
-             this.setState({ latitude,longitude
-             });
+             this.setState({ 
+                marker: {
+                    latitude: latitude,
+                    longitude: longitude
+                }
+            });
            },
            error => console.log(error),
             { 
@@ -110,8 +126,8 @@ export default class firstScreen extends Component{
         var icon = navigation.getParam('icon', 'no_icon');
         this.ref.add({
             icon: icon,
-            longitude: this.state.longitude,
-            latitude: this.state.latitude,
+            longitude: this.state.region.longitude,
+            latitude: this.state.region.latitude,
         }).then((docRef) => {
             this.setState({
             isLoading: false,
@@ -128,15 +144,17 @@ nextPage = () => {
     this.props.navigation.navigate('secondScreen')
 }
 onRegionChange = (region) => {
-    this.setState({
-      region,
-      marker: {
-        latitude: region.latitude,
-        longitude: region.longitude,
-      }
-    });
-  }
-  changeMapType = () => {
+    if(Math.abs(region.latitude-this.state.latitude)>0.0001 || Math.abs(region.longitude-this.state.longitude)>0.0001 || Math.abs(region.latitudeDelta-this.state.latitudeDelta)>0.0001 || Math.abs(region.longitudeDelta-this.state.longitudeDelta)){
+        this.setState({
+            region: region,
+            latitude: region.latitude,
+            longitude: region.longitude,
+            latitudeDelta: region.latitudeDelta,
+            longitudeDelta: region.longitudeDelta
+        });
+    }
+}
+changeMapType = () => {
       switch(this.state.mapType){
         case 'standard':
             this.setState({mapType:'hybrid'});
@@ -155,11 +173,22 @@ onRegionChange = (region) => {
             break;
       }
   }
+  backViewPoint = () => {
+      const latitude = this.state.marker.latitude;
+      const longitude = this.state.marker.longitude;
+      this.setState({
+        latitude: latitude,
+        longitude: longitude
+      });
+  }
 render(){
-    const { navigation } = this.props;
     return(
         <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.container}>
+        <Text style={styles.cross}>+</Text>
+        <Text onPress={this.backViewPoint}  style={styles.back}>
+            <Image source={{uri: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/location_arrow.png?alt=media'}} style={{height: 48, width:48}}/>
+        </Text>
         <Text onPress={this.changeMapType} style={styles.maptype}>
             <Image  source ={{uri: 'https://firebasestorage.googleapis.com/v0/b/emergy-19023.appspot.com/o/disaster_icons%2Fmapstyle.png?alt=media'}} style={{height: 48, width:48}} />
         </Text>
@@ -167,9 +196,11 @@ render(){
             provider={PROVIDER_GOOGLE} // remove if not using Google Maps
             style={styles.map}
             mapType={this.state.mapType}
+            onRegionChangeComplete={this.onRegionChange}
             region={this.getMapRegion()}
+            // initialRegion={this.getMapRegion()}
             >
-            <Marker coordinate={this.getMapRegion()} />
+            <Marker coordinate={this.state.marker} />
             {
                 this.state.tabs.map((item, i) => (
                     <Marker
@@ -196,6 +227,22 @@ const styles = StyleSheet.create({
  container: {
    ...StyleSheet.absoluteFillObject,
    justifyContent: 'flex-end',
+ },
+ cross: {
+    position: 'absolute',
+    top: '39%',
+    left: '48%',
+    color: '#FF0000',
+    fontSize: 32,
+    opacity: 0.7,
+    zIndex: 2,
+ },
+ back: {
+    position: 'absolute',
+    top: '68%',
+    left: '4%',
+    lineHeight: 100,
+    zIndex: 2,
  },
  maptype: {
      position:'absolute',

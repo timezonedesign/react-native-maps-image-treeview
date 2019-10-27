@@ -28,7 +28,7 @@ export default class thirdScreen extends React.Component{
             <Text style={styles.instructions}>
                 This symbol represents{"\n"} a {name.toLowerCase()}
             </Text>
-            <Text onPress={this.nextPage} style={styles.text2}>Add to map</Text>
+            <Text onPress={this.nextPage} style={styles.button}>Add to map</Text>
         </View>
     );
   }
@@ -37,34 +37,29 @@ export default class thirdScreen extends React.Component{
 const styles=StyleSheet.create({
     container:{
         flex:1,
-        justifyContent:'center',
         alignItems:'center',
         backgroundColor:'#F5FCFF',
     },
     image: {
-      top: '-10%',
+      marginTop: '5%',
       width: 256, 
       height:256,
     },
     iconName:{
-      top: '-10%',
         fontWeight: '600',
         fontSize:32,
         textAlign:'center',
         margin:10,
     },
     instructions:{
-      top: '-10%',
+        minHeight: '20%',
         fontWeight: '600',
         fontSize: 28,
         textAlign:'center',
         color:'#333333',
         marginBottom:5,
     },
-    text2: {
-     ...StyleSheet.absoluteFillObject,
-    left: '2%',
-    top: '75%',
+    button: {
     width: '96%',
     height: '10%',
     backgroundColor: '#72AC4D',
@@ -77,12 +72,4 @@ const styles=StyleSheet.create({
     textAlignVertical: 'center',
     lineHeight: 36
     },
-    text3: {
-      position: 'absolute',
-      bottom: '1%',
-      left: '2%',
-      fontSize: 16,
-      color: '#0000ff',
-      textDecorationLine: 'underline'
-   },
 });
