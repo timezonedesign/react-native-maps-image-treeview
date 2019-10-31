@@ -31,6 +31,7 @@ export default class secondScreen extends React.Component{
     this._retrieveData();
   }
   _storeData = async (node) => {
+    console.log(node);
     try {
         var equalto = true;
       for(i=0;i<icons[0].children.length;i++){
